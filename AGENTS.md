@@ -40,7 +40,7 @@ The rules under `.cursor/rules/` cover the most actionable parts of these refere
    review. Docusaurus is configured with `onBrokenLinks: 'throw'`, so broken internal links fail
    the build.
 5. **Pass the CI linter.** PRs are checked by the
-   [Consensys docs-lint-all](https://github.com/Consensys/github-actions) action that enforces
+   [Consensys docs-lint-all](https://github.com/Consensys-Incorporated/github-actions) action that enforces
    Microsoft style and Consensys terminology. Fix warnings before requesting review.
 
 ## AI guidance
