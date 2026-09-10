@@ -26,7 +26,7 @@ jobs:
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
       - name: Release
-        uses: Consensys-Incorporated/github-actions/docs-release@28327992dc4f4eeeee937abbaebf63f00f4f6068
+        uses: Consensys-Incorporated/github-actions/docs-release@89c262a30cae735be99dc776f9556b796fb456ca # v1.0.0
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SEMANTIC_RELEASE: true
