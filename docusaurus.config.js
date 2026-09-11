@@ -23,7 +23,7 @@ const config = {
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: "Consensys", // Usually your GitHub org/user name.
+  organizationName: "Consensys-Incorporated", // Usually your GitHub org/user name.
   projectName: "doc.zesu", // Usually your repo name.
   deploymentBranch: "gh-pages", // Github Pages deploying branch
 
@@ -42,7 +42,7 @@ const config = {
         docs: {
           sidebarPath: require.resolve("./sidebars.js"),
           // Set a base path separate from default /docs
-          editUrl: "https://github.com/Consensys/doc.zesu/tree/main/",
+          editUrl: "https://github.com/Consensys-Incorporated/doc.zesu/tree/main/",
           routeBasePath: "/",
           path: "./docs",
           includeCurrentVersion: true,
@@ -141,12 +141,12 @@ const config = {
         items: [
           {
             label: "Releases",
-            href: "https://github.com/Consensys/zesu/releases",
+            href: "https://github.com/Consensys-Incorporated/zesu/releases",
             className: "navbar-releases-link",
             position: "right",
           },
           {
-            href: "https://github.com/Consensys/zesu",
+            href: "https://github.com/Consensys-Incorporated/zesu",
             className: "header-github-link",
             position: "right",
           },
@@ -181,7 +181,7 @@ const config = {
             items: [
               {
                 label: "Zesu",
-                href: "https://github.com/Consensys/zesu",
+                href: "https://github.com/Consensys-Incorporated/zesu",
               },
             ],
           },
