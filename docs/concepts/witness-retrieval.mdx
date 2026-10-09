@@ -74,7 +74,10 @@ input.
 This is the canonical format Zesu consumes when it runs inside a zkVM.
 See [Inputs and outputs](./inputs-and-outputs.mdx) for the input structure.
 
-The execution client supplies the block data and witness through its own interface.
-Any conversion to the SSZ format Zesu consumes happens outside Zesu.
+Besu serves the witness for an imported block from
+[`debug_executionWitness`](https://docs.besu-eth.org/public-networks/reference/api/debug/getters#debug_executionwitness).
+The native binary accepts that JSON-RPC response as the witness file for
+[`--json`](../reference/cli-options.mdx#json).
+Any conversion from that response to the SSZ format Zesu consumes happens outside Zesu.
 Witness availability is bounded by what the execution client can serve, which limits how
 far back blocks can be re-executed.

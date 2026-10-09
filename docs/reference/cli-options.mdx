@@ -117,10 +117,15 @@ Both arguments are required.
 
 The binary accepts two formats for each file:
 
-| File         | Accepted formats                                                                                            |
-|--------------|-------------------------------------------------------------------------------------------------------------|
-| Block file   | `{"result":"0x<rlp>"}` (raw `debug_getRawBlock` response) or `{"block":"0x<rlp>"}`                          |
-| Witness file | `{"state":[...],"codes":[...],"keys":[...],"headers":[...]}` (direct) or `{"jsonrpc":"2.0","result":{...}}` |
+| File         | Accepted formats                                                                                   |
+|--------------|----------------------------------------------------------------------------------------------------|
+| Block file   | `{"result":"0x<rlp>"}` (raw `debug_getRawBlock` response) or `{"block":"0x<rlp>"}`                 |
+| Witness file | `{"state":[...],"codes":[...],"headers":[...]}` (direct) or `{"jsonrpc":"2.0","result":{...}}` |
+
+The JSON-RPC envelope is a
+[`debug_executionWitness`](https://docs.besu-eth.org/public-networks/reference/api/debug/getters#debug_executionwitness)
+response.
+`keys`, if present, is a legacy field that Zesu ignores.
 
 ## Environment variables
 
