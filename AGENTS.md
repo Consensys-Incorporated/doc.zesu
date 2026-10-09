@@ -1,6 +1,6 @@
 # Zesu documentation
 
-This repository contains the source for [Zesu](https://docs.zesu.consensys.io), the Consensys
+This repository contains the source for [Zesu](https://docs.zesu.consensys.com), the Consensys
 stateless ZK execution client documentation site. It is built with Docusaurus.
 
 ## Documentation structure

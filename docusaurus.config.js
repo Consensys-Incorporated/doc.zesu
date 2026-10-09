@@ -9,7 +9,7 @@ const baseUrl = isDev ? "/" : "/";
 const config = {
   title: "Zesu",
   tagline: "Stateless ZK execution client.",
-  url: "https://docs.zesu.consensys.io",
+  url: "https://docs.zesu.consensys.com",
   baseUrl,
   onBrokenLinks: "throw",
   markdown: {
