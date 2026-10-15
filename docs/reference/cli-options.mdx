@@ -38,31 +38,6 @@ which controls where it reads input bytes from when no input flag is provided.
 
 ## Options
 
-### `fork`
-
-<Tabs>
-
-<TabItem value="Syntax" label="Syntax" default>
-
-```bash
---fork <NAME>
-```
-
-</TabItem>
-
-<TabItem value="Example" label="Example">
-
-```bash
---fork Prague
-```
-
-</TabItem>
-
-</Tabs>
-
-Overrides the fork rules selected by the input's
-[schema ID](../concepts/inputs-and-outputs.mdx#the-schema-id-prefix).
-
 ### `ssz`
 
 <Tabs>
@@ -89,39 +64,6 @@ Reads SSZ-encoded input from a binary file.
 If supplied without an argument, Zesu falls back to standard input or
 [`ZESU_INPUT`](#environment-variables).
 
-### `json`
-
-<Tabs>
-
-<TabItem value="Syntax" label="Syntax" default>
-
-```bash
---json <BLOCK_FILE> <WITNESS_FILE>
-```
-
-</TabItem>
-
-<TabItem value="Example" label="Example">
-
-```bash
---json ./block.json ./witness.json
-```
-
-</TabItem>
-
-</Tabs>
-
-Reads input from two JSON files, one containing the block and one containing
-the witness.
-Both arguments are required.
-
-The binary accepts two formats for each file:
-
-| File         | Accepted formats                                                                                            |
-|--------------|-------------------------------------------------------------------------------------------------------------|
-| Block file   | `{"result":"0x<rlp>"}` (raw `debug_getRawBlock` response) or `{"block":"0x<rlp>"}`                          |
-| Witness file | `{"state":[...],"codes":[...],"keys":[...],"headers":[...]}` (direct) or `{"jsonrpc":"2.0","result":{...}}` |
-
 ## Environment variables
 
 ### `ZESU_INPUT`
@@ -147,14 +89,12 @@ ZESU_INPUT=./block.bin zesu
 </Tabs>
 
 Path to a file containing SSZ-encoded input bytes.
-Used only when no [`--ssz`](#ssz) or [`--json`](#json) flag is present on the
-command line.
+Used only when you don't pass a file to [`--ssz`](#ssz).
 If `ZESU_INPUT` is not set, Zesu reads from standard input.
 
 ## Output streams
 
-Zesu writes its public output (the 43-byte SSZ commitment, or the JSON summary
-for [`--json`](#json) input) to standard output.
+Zesu writes its public output (the 43-byte SSZ commitment) to standard output.
 Diagnostic messages go to standard error.
 See [Inputs and outputs](../concepts/inputs-and-outputs.mdx) for the output
 format.
