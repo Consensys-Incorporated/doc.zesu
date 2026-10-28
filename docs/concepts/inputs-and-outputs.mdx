@@ -44,7 +44,6 @@ flowchart LR
         F1[new_payload_request]
         F2[witness]
         F3[chain_id]
-        F4[public_keys]
     end
     subgraph zkvm["`**zkVM**`"]
         Z["`**Zesu**<br/>(guest)`"]
@@ -61,7 +60,7 @@ flowchart LR
         P1["proof_data (zkVM blob)"]
         P2[proof_type]
     end
-    F0 ~~~ F1 ~~~ F2 ~~~ F3 ~~~ F4
+    F0 ~~~ F1 ~~~ F2 ~~~ F3
     O1 ~~~ O2 ~~~ O3 ~~~ O4
     P1 ~~~ P2
     input -->|read_input| zkvm
@@ -81,10 +80,9 @@ class StatelessInput:
     new_payload_request: NewPayloadRequest
     witness: ExecutionWitness
     chain_id: uint64
-    public_keys: Tuple[Bytes, ...]
 ```
 
-The four fields play distinct roles:
+The three fields play distinct roles:
 
 - `new_payload_request` is the Engine API payload data supplied by the consensus client.
   It includes the execution payload, blob versioned hashes ([EIP-4844](https://eips.ethereum.org/EIPS/eip-4844)),
@@ -94,9 +92,6 @@ The four fields play distinct roles:
 - `witness` is the chain state Zesu needs to re-execute the payload's transactions without
   holding local state. See [Witness retrieval](./witness-retrieval.mdx) for details.
 - `chain_id` identifies the chain the payload belongs to.
-- `public_keys` optionally contains one 64-byte uncompressed secp256k1 public key
-  (no `0x04` prefix) for each transaction signer, in transaction order. When provided,
-  the guest uses these keys instead of recovering signers from transaction signatures.
 
 The input is "private" in the proof-system sense. The node running Zesu supplies it, but
 verifiers don't see it.
