@@ -6,6 +6,9 @@ excludedDirs:
   - ./.docusaurus
   - ./node_modules
 useGitIgnore: true
+fileExtensions:
+  - md
+  - mdx
 
 ignorePatterns:
   - pattern: "^/img/"
