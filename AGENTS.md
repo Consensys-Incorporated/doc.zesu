@@ -20,8 +20,8 @@ before they appear in the navigation.
 
 Follow these guides when writing or editing documentation:
 
-- [Consensys documentation style guide](https://docs-template.consensys.net/contribute/style-guide)
-- [Consensys Markdown formatting guide](https://docs-template.consensys.net/contribute/format-markdown)
+- [Consensys documentation style guide](https://docs-template.consensys.com/contribute/style-guide)
+- [Consensys Markdown formatting guide](https://docs-template.consensys.com/contribute/format-markdown)
 - [Microsoft Writing Style Guide](https://learn.microsoft.com/en-us/style-guide/welcome/)
 - [Diataxis framework](https://diataxis.fr/) for content structure
 
