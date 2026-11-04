@@ -1,20 +1,10 @@
 ---
 title: Inputs and outputs
 description: The stateless input Zesu consumes and the validation result it produces, as defined by EIP-8025.
-keywords:
-  [
-    stateless input,
-    StatelessInput,
-    StatelessValidationResult,
-    execution proof,
-    EIP-8025,
-    public output,
-    zesu,
-    zkVM,
-  ]
+keywords: [stateless input, StatelessInput, StatelessValidationResult, execution proof, EIP-8025, public output, zesu, zkVM]
 ---
 
-import GlossaryTerm from '@theme/GlossaryTerm'
+import GlossaryTerm from "@theme/GlossaryTerm";
 
 Zesu runs as a <GlossaryTerm term="Guest program">guest program</GlossaryTerm> inside a <GlossaryTerm term="zkVM">zkVM</GlossaryTerm> and has a defined contract for what it
 consumes and what it returns.
@@ -104,10 +94,10 @@ The schema ID prefix described next tells the guest which fork rules to apply.
 
 Two bytes precede the SSZ container and identify the input schema:
 
-| Byte | Meaning                                                          |
-|------|------------------------------------------------------------------|
-| `0`  | `ProtocolFork` index, the fork whose rules the guest must apply  |
-| `1`  | Schema revision, how the rest of the payload is encoded          |
+| Byte | Meaning                                                         |
+| ---- | --------------------------------------------------------------- |
+| `0`  | `ProtocolFork` index, the fork whose rules the guest must apply |
+| `1`  | Schema revision, how the rest of the payload is encoded         |
 
 The `ProtocolFork` index is the stable fork enum the stateless schemas are keyed by, where
 `0x15` is Amsterdam.
@@ -146,12 +136,12 @@ class StatelessValidationResult:
 Zesu serializes this `StatelessValidationResult` as a 43-byte SSZ commitment.
 Every field is fixed-size, so the commitment is always 43 bytes.
 
-| Bytes      | Field                      | Description                                      |
-|------------|----------------------------|--------------------------------------------------|
-| `[0..32]`  | `new_payload_request_root` | SSZ `hash_tree_root` of the `NewPayloadRequest`  |
-| `[32]`     | `successful_validation`    | `0x01` for success, `0x00` for failure           |
-| `[33..41]` | `chain_id`                 | Chain ID as a little-endian `uint64`             |
-| `[41..43]` | `schema_id`                | Input schema ID as a little-endian `uint16`      |
+| Bytes      | Field                      | Description                                     |
+| ---------- | -------------------------- | ----------------------------------------------- |
+| `[0..32]`  | `new_payload_request_root` | SSZ `hash_tree_root` of the `NewPayloadRequest` |
+| `[32]`     | `successful_validation`    | `0x01` for success, `0x00` for failure          |
+| `[33..41]` | `chain_id`                 | Chain ID as a little-endian `uint64`            |
+| `[41..43]` | `schema_id`                | Input schema ID as a little-endian `uint16`     |
 
 Each field serves a verification role.
 

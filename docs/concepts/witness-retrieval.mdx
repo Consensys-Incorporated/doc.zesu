@@ -1,18 +1,10 @@
 ---
 title: Witness retrieval
 description: What an execution witness is, why Zesu needs one, and how Zesu retrieves it from an execution client.
-keywords:
-  [
-    execution witness,
-    witness retrieval,
-    stateless execution,
-    debug_executionWitness,
-    zesu,
-    zkVM,
-  ]
+keywords: [execution witness, witness retrieval, stateless execution, debug_executionWitness, zesu, zkVM]
 ---
 
-import GlossaryTerm from '@theme/GlossaryTerm'
+import GlossaryTerm from "@theme/GlossaryTerm";
 
 An <GlossaryTerm term="Execution witness">execution witness</GlossaryTerm> is a record of the chain state that Zesu needs to re-execute a block's
 transactions.
@@ -54,7 +46,7 @@ block was executed correctly over that state.
 The two serve different roles in the pipeline:
 
 |              | Witness                    | Execution proof                   |
-|--------------|----------------------------|-----------------------------------|
+| ------------ | -------------------------- | --------------------------------- |
 | What it is   | Merkle proofs of pre-state | Zero-knowledge proof of execution |
 | Role         | Input to Zesu's execution  | Output of Zesu's execution        |
 | Size         | Megabytes                  | Kilobytes                         |

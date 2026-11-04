@@ -1,17 +1,11 @@
 ---
 title: CLI options
 description: Command-line options, environment variables, output streams, and exit codes for the native Zesu binary.
-keywords:
-  [
-    zesu,
-    CLI,
-    command line,
-    options,
-  ]
+keywords: [zesu, CLI, command line, options]
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
 
 This reference describes the command-line interface of the native `zesu` binary.
 You can [install the native binary](../get-started/install-native.mdx) and build it from
@@ -102,6 +96,6 @@ format.
 ## Exit codes
 
 | Code | Meaning                                                                                                                                                              |
-|------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ---- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `0`  | Block executed successfully and the post-state root and receipts root match the expected values.                                                                     |
 | `1`  | Argument parsing failed, the input could not be loaded, execution returned an error, or the resulting state root or receipts root did not match the expected values. |

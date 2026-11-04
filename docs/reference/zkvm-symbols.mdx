@@ -1,21 +1,10 @@
 ---
 title: zkVM symbol reference
 description: Complete reference for the extern symbols that zkVM hosts must implement to integrate the Zesu guest program.
-keywords:
-  [
-    zesu,
-    zkVM,
-    symbols,
-    extern,
-    read_input,
-    write_output,
-    accelerators,
-    precompiles,
-    rv64im,
-  ]
+keywords: [zesu, zkVM, symbols, extern, read_input, write_output, accelerators, precompiles, rv64im]
 ---
 
-import GlossaryTerm from '@theme/GlossaryTerm'
+import GlossaryTerm from "@theme/GlossaryTerm";
 
 Zesu builds its execution logic as a relocatable RISC-V <GlossaryTerm term="ELF object">ELF object</GlossaryTerm> named
 `zesu.rv64im.o`.
@@ -38,10 +27,10 @@ I/O symbols are the channel between Zesu and the zkVM host at runtime.
 Zesu uses `read_input` to receive the zkVM private input and `write_output` to emit
 public output bytes.
 
-| Symbol         | Signature                       | Description                                              |
-|----------------|---------------------------------|----------------------------------------------------------|
-| `read_input`   | `(*[*]const u8, *usize) void`   | Return the location and length of the serialized input   |
-| `write_output` | `([*]const u8, usize) void`     | Emit the public output bytes                             |
+| Symbol         | Signature                     | Description                                            |
+| -------------- | ----------------------------- | ------------------------------------------------------ |
+| `read_input`   | `(*[*]const u8, *usize) void` | Return the location and length of the serialized input |
+| `write_output` | `([*]const u8, usize) void`   | Emit the public output bytes                           |
 
 ## Runtime symbols
 
@@ -49,7 +38,7 @@ Runtime symbols provide execution environment support for logging and memory
 management.
 
 | Symbol          | Signature                       | Description                                               |
-|-----------------|---------------------------------|-----------------------------------------------------------|
+| --------------- | ------------------------------- | --------------------------------------------------------- |
 | `zkvm_log`      | `(u8, [*]const u8, usize) void` | Log a message at the given level                          |
 | `ZKVM_HEAP_POS` | `usize` (var)                   | Heap cursor the allocator advances when it grows the heap |
 | `ZKVM_HEAP_TOP` | `usize` (var)                   | Heap upper bound the allocator must not exceed            |
@@ -110,24 +99,24 @@ The precompile column shows the EVM precompile address that each accelerator cor
 to, where applicable.
 No precompile address is listed for `zkvm_keccak256` or `zkvm_secp256k1_verify`.
 
-| Symbol                        | Precompile | Description                                          |
-|-------------------------------|------------|------------------------------------------------------|
-| `zkvm_keccak256`              |            | Keccak-256 hash                                      |
-| `zkvm_sha256`                 | `0x02`     | SHA-256 hash                                         |
-| `zkvm_secp256k1_ecrecover`    | `0x01`     | secp256k1 signature recovery                         |
-| `zkvm_secp256k1_verify`       |            | secp256k1 signature verification                     |
-| `zkvm_ripemd160`              | `0x03`     | RIPEMD-160 hash                                      |
-| `zkvm_modexp`                 | `0x05`     | Modular exponentiation (EIP-198)                     |
-| `zkvm_bn254_g1_add`           | `0x06`     | BN254 G1 point addition (EIP-196)                    |
-| `zkvm_bn254_g1_mul`           | `0x07`     | BN254 G1 scalar multiplication (EIP-196)             |
-| `zkvm_bn254_pairing`          | `0x08`     | BN254 pairing check (EIP-197)                        |
-| `zkvm_blake2f`                | `0x09`     | BLAKE2f compression (EIP-152)                        |
-| `zkvm_kzg_point_eval`         | `0x0a`     | KZG point evaluation (EIP-4844)                      |
-| `zkvm_bls12_g1_add`           | `0x0b`     | BLS12-381 G1 addition (EIP-2537)                     |
-| `zkvm_bls12_g1_msm`           | `0x0c`     | BLS12-381 G1 multi-scalar multiplication (EIP-2537)  |
-| `zkvm_bls12_g2_add`           | `0x0d`     | BLS12-381 G2 addition (EIP-2537)                     |
-| `zkvm_bls12_g2_msm`           | `0x0e`     | BLS12-381 G2 multi-scalar multiplication (EIP-2537)  |
-| `zkvm_bls12_pairing`          | `0x0f`     | BLS12-381 pairing check (EIP-2537)                   |
-| `zkvm_bls12_map_fp_to_g1`     | `0x10`     | BLS12-381 Fp to G1 map (EIP-2537)                    |
-| `zkvm_bls12_map_fp2_to_g2`    | `0x11`     | BLS12-381 Fp2 to G2 map (EIP-2537)                   |
-| `zkvm_secp256r1_verify`       | `0x100`    | P-256 signature verification (EIP-7212)              |
+| Symbol                     | Precompile | Description                                         |
+| -------------------------- | ---------- | --------------------------------------------------- |
+| `zkvm_keccak256`           |            | Keccak-256 hash                                     |
+| `zkvm_sha256`              | `0x02`     | SHA-256 hash                                        |
+| `zkvm_secp256k1_ecrecover` | `0x01`     | secp256k1 signature recovery                        |
+| `zkvm_secp256k1_verify`    |            | secp256k1 signature verification                    |
+| `zkvm_ripemd160`           | `0x03`     | RIPEMD-160 hash                                     |
+| `zkvm_modexp`              | `0x05`     | Modular exponentiation (EIP-198)                    |
+| `zkvm_bn254_g1_add`        | `0x06`     | BN254 G1 point addition (EIP-196)                   |
+| `zkvm_bn254_g1_mul`        | `0x07`     | BN254 G1 scalar multiplication (EIP-196)            |
+| `zkvm_bn254_pairing`       | `0x08`     | BN254 pairing check (EIP-197)                       |
+| `zkvm_blake2f`             | `0x09`     | BLAKE2f compression (EIP-152)                       |
+| `zkvm_kzg_point_eval`      | `0x0a`     | KZG point evaluation (EIP-4844)                     |
+| `zkvm_bls12_g1_add`        | `0x0b`     | BLS12-381 G1 addition (EIP-2537)                    |
+| `zkvm_bls12_g1_msm`        | `0x0c`     | BLS12-381 G1 multi-scalar multiplication (EIP-2537) |
+| `zkvm_bls12_g2_add`        | `0x0d`     | BLS12-381 G2 addition (EIP-2537)                    |
+| `zkvm_bls12_g2_msm`        | `0x0e`     | BLS12-381 G2 multi-scalar multiplication (EIP-2537) |
+| `zkvm_bls12_pairing`       | `0x0f`     | BLS12-381 pairing check (EIP-2537)                  |
+| `zkvm_bls12_map_fp_to_g1`  | `0x10`     | BLS12-381 Fp to G1 map (EIP-2537)                   |
+| `zkvm_bls12_map_fp2_to_g2` | `0x11`     | BLS12-381 Fp2 to G2 map (EIP-2537)                  |
+| `zkvm_secp256r1_verify`    | `0x100`    | P-256 signature verification (EIP-7212)             |

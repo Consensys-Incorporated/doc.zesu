@@ -1,25 +1,15 @@
 ---
 title: Architecture
 description: How Zesu fits into the zkVM proving pipeline and why it is built as a relocatable ELF object.
-keywords:
-  [
-    zesu,
-    architecture,
-    zkVM,
-    ELF,
-    rv64im,
-    relocatable,
-    execution proof,
-    EIP-8025,
-  ]
+keywords: [zesu, architecture, zkVM, ELF, rv64im, relocatable, execution proof, EIP-8025]
 ---
 
-import GlossaryTerm from '@theme/GlossaryTerm'
+import GlossaryTerm from "@theme/GlossaryTerm";
 
 Zesu is a stateless EVM block executor designed to run as a <GlossaryTerm term="Guest program">guest program</GlossaryTerm> inside a
-<GlossaryTerm term="zkVM">zero-knowledge virtual machine (zkVM)</GlossaryTerm>.
-This page explains how Zesu fits into the end-to-end proving pipeline and why it is
-structured as a relocatable <GlossaryTerm term="ELF object">ELF object</GlossaryTerm> rather than a zkVM-specific binary.
+
+<GlossaryTerm term="zkVM">zero-knowledge virtual machine (zkVM)</GlossaryTerm>. This page explains how Zesu fits into the end-to-end proving pipeline and why it is structured as a relocatable
+<GlossaryTerm term="ELF object">ELF object</GlossaryTerm> rather than a zkVM-specific binary.
 
 ## The proving pipeline
 
@@ -115,17 +105,17 @@ native build.
 The extern references that zkVM hosts must satisfy fall into three categories.
 
 - **I/O**: how the host passes the `StatelessInput` to Zesu and receives the public
-commitment back. The two I/O symbols (`read_input` and `write_output`) are the only channel
-between the guest and the host at runtime.
+  commitment back. The two I/O symbols (`read_input` and `write_output`) are the only channel
+  between the guest and the host at runtime.
 
 - **Runtime**: execution environment support: logging and the heap allocator's position
-and upper-bound variables. These let Zesu operate in a freestanding environment without
-an operating system.
+  and upper-bound variables. These let Zesu operate in a freestanding environment without
+  an operating system.
 
 - **Accelerators**: EVM precompile operations (keccak256, secp256k1 recovery, BN254
-pairings, and so on) delegated to zkVM-native implementations where available.
-Hardware-accelerated precompiles reduce proof cost significantly for computationally
-expensive EVM operations.
+  pairings, and so on) delegated to zkVM-native implementations where available.
+  Hardware-accelerated precompiles reduce proof cost significantly for computationally
+  expensive EVM operations.
 
 Termination sits outside the symbol contract.
 Zesu's `main` returns an exit status that the host entry point maps to the zkVM's halt
