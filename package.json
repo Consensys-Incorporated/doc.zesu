@@ -59,19 +59,12 @@
     "@docusaurus/module-type-aliases": "^3.10.0",
     "@docusaurus/tsconfig": "^3.10.0",
     "@docusaurus/types": "^3.10.0",
-    "@semantic-release/changelog": "^6.0.3",
-    "@semantic-release/commit-analyzer": "^10.0.4",
-    "@semantic-release/git": "^10.0.1",
-    "@semantic-release/github": "^8.0.7",
-    "@semantic-release/npm": "^13.1.5",
-    "@semantic-release/release-notes-generator": "^10.0.3",
     "@typescript-eslint/parser": "^6.13.1",
     "commitizen": "^4.3.2",
     "cz-conventional-changelog": "^3.3.0",
     "husky": "^9.1.7",
     "lint-staged": "^15.5.2",
     "prettier": "^3.9.10",
-    "semantic-release": "^25.0.0",
     "stylelint": "^16.0.0 ",
     "stylelint-config-standard": "^39.0.0",
     "tsc-files": "^1.1.4",
@@ -90,7 +83,16 @@
     ]
   },
   "engines": {
-    "node": ">=18.0"
+    "node": "24.22.2"
+  },
+  "overrides": {
+    "katex": "0.18.10",
+    "minimatch@9.0.3": "11.0.5",
+    "serialize-javascript": "7.1.4",
+    "sockjs": {
+      "uuid": "11.1.1"
+    },
+    "tinypool": "2.2.0"
   },
   "commitlint": {
     "extends": [
