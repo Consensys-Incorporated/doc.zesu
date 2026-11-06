@@ -86,7 +86,7 @@
     "node": "24.22.2"
   },
   "overrides": {
-    "katex": "0.18.11",
+    "katex": "0.18.10",
     "minimatch@9.0.3": "11.0.5",
     "serialize-javascript": "7.1.4",
     "sockjs": {
