@@ -234,31 +234,6 @@ const config = {
         containerId: "GTM-PJ2X8WWH",
       },
     ],
-    // This is how redirects are done
-    // [
-    //   "@docusaurus/plugin-client-redirects",
-    //   {
-    //     redirects: [
-    //       {
-    //         from: "/HowTo/Get-Started/Installation-Options/Install-Binaries",
-    //         to: "/get-started/install/install-binaries",
-    //       },
-    //     ],
-    //     // its quite odd here in that its back to front - replace(to, from)
-    //     createRedirects(existingPath) {
-    //       if (existingPath.includes("/development")) {
-    //         return [
-    //           existingPath.replace("/development", "/en/latest"),
-    //           existingPath.replace("/development", "/latest"),
-    //         ];
-    //       }
-    //       if (existingPath.includes("/")) {
-    //         return [existingPath.replace("/", "/stable")];
-    //       }
-    //       return undefined; // Return a falsy value: no redirect created
-    //     },
-    //   },
-    // ],
     [
       "docusaurus-plugin-llms",
       {
