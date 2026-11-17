@@ -36,6 +36,18 @@ value that you have not verified against the Zesu codebase or published referenc
 uncertain, add a review comment or admonition noting the uncertainty. This rule applies to both
 human and AI-assisted contributions.
 
+## Issue intake
+
+Issue forms live in `.github/ISSUE_TEMPLATE/`. `new-content.yml`, `fix-content.yml`, and
+`site.yml` share one field contract. Do not rename these labels: Summary, Docs area,
+Target audience, Content type, Affected pages, Source links, Acceptance criteria, Out of
+scope, Agent disposition, and PR gates. Only the Docs area options and examples are
+product-specific.
+
+When an issue is sparse, verify behavior against the Zesu codebase or published reference
+before changing docs. Open a docs pull request without extra triage only when Agent
+disposition is `Ready for a docs PR` and every PR gate is checked.
+
 ## Images
 
 Place images in `docs/assets/images/` (create the directory if it does not exist). Reference
